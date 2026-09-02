@@ -11,12 +11,12 @@
 | --- | --- | --- |
 | D1 | Tamaño de `int` | 32 bits, con signo |
 | D2 | Tamaño de `real` | 64 bits |
-| D3 | Sintaxis de conversión explícita | Funciones `toReal(x)` y `toInt(x)` (no se usa cast con paréntesis de tipo, para no confundirlo con una llamada a función normal en el análisis léxico) |
-| D4 | Comportamiento de `toInt(x)` sobre un real | **Truncamiento** hacia cero (se descarta la parte decimal, no se redondea) — *a ratificar por el grupo, la consigna permite elegir truncamiento o redondeo* |
+| D3 | Sintaxis de conversión explícita | Funciones `toReal(x)` y `toInt(x)` (no se usa cast con paréntesis de tipo) |
+| D4 | Comportamiento de `toInt(x)` sobre un real | **Truncamiento** hacia cero (se descarta la parte decimal, no se redondea) |
 | D5 | Rango de `int` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
 | D6 | Detección de real fuera de rango en `toInt` | Error semántico en tiempo de compilación **solo** si el real es una constante; si es una variable, error en tiempo de ejecución (se documenta igual como caso de `toInt`) |
-| D7 | Memoria | Estática global; variables locales de función también estáticas (ver §5) |
-| D8 | Recursión | No permitida (llamada recursiva directa es error semántico) |
+| D7 | Memoria | Estática global; variables locales de función también estáticas |
+| D8 | Recursión | **No permitida** (llamada recursiva directa es error semántico) |
 | D9 | Parámetros de función | No existen; comunicación exclusivamente por variables globales |
 | D10 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
 | D11 | Comentarios | `// comentario de línea` (no se pide en la consigna, pero se recomienda para legibilidad de los programas de prueba) |
