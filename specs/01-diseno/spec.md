@@ -9,7 +9,7 @@
 
 | # | Decisión | Valor |
 | --- | --- | --- |
-| D1 | Tamaño de `int` | 32 bits, con signo |
+| D1 | Tamaño de `int` | 32 bits | **PREGUNTAR TAMAÑO**
 | D2 | Tamaño de `real` | 64 bits |
 | D3 | Sintaxis de conversión explícita | Funciones `toReal(x)` y `toInt(x)` (no se usa cast con paréntesis de tipo) |
 | D4 | Comportamiento de `toInt(x)` sobre un real | **Truncamiento** hacia cero (se descarta la parte decimal, no se redondea) |
