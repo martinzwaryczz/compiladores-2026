@@ -49,9 +49,6 @@ switch  case  default  while
 toInt  toReal
 and  or
 ```
-
-Las palabras reservadas no pueden usarse como identificadores. Comparación case-sensitive.
-
 ---
 
 ## 4. Tabla de tokens
@@ -107,16 +104,6 @@ main {
     <sentencias>
 }
 ```
-
-- Toda variable (global o local) se declara con `<tipo> <id> ;` y la declaración
-  debe preceder textualmente a su primer uso (consigna E.2.6).
-- Las variables locales de una función o del `main` se declaran al inicio del
-  bloque, antes de cualquier sentencia.
-- Esquema de memoria estática (consigna E.5.16): cada variable local recibe una
-  dirección fija asignada en tiempo de compilación, calculada por función
-  (offset dentro de un área estática reservada a esa función). Como no hay
-  recursión, no existe pila de activación: una única instancia de cada
-  variable local vive durante toda la ejecución del programa.
 
 ---
 
@@ -253,27 +240,9 @@ main {
 }
 ```
 
-Salida esperada: el programa compila sin errores (todas las mezclas `int`/`real`
-usan `toReal`/`toInt` explícitos), `contador` termina en `5`, `total` en `15.0`
-y `acumulado` recibe el resultado de `promedio()` (`3.0`).
-
-> Los casos de prueba obligatorios de la consigna E.6 (mezcla sin conversión
-> rechazada, la misma corregida, `switch` con etiquetas duplicadas rechazado,
-> y programa con recursión directa rechazado) son variantes de este mismo
-> programa base y se entregan como archivos de test aparte, no como parte de
-> esta spec.
 
 ---
 
 ## 10. Fuera de alcance
 
-- Arreglos, cadenas de caracteres, registros y punteros.
-- Funciones con parámetros (la consigna solo permite comunicación por globales).
-- Recursión indirecta (solo se exige detectar la directa; se documenta como
-  limitación conocida del compilador, no como funcionalidad soportada).
-- Operador de negación lógica (`not`) y operadores bit a bit.
-- Manejo de excepciones o errores en tiempo de ejecución más allá de `toInt`
-  fuera de rango sobre constantes.
-- Entrada/salida (no se define ninguna primitiva de lectura o impresión;
-  se asume que los casos de prueba verifican valores finales de variables).
-- Comentarios de bloque (`/* ... */`); solo se admite `//` de línea.
+- FALTA
