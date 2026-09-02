@@ -13,11 +13,11 @@
 | D2 | Tamaño de `real` | 64 bits |
 | D3 | Sintaxis de conversión explícita | Funciones `toReal(x)` y `toInt(x)` (no se usa cast con paréntesis de tipo) |
 | D4 | Comportamiento de `toInt(x)` sobre un real | **Truncamiento** hacia cero (se descarta la parte decimal, no se redondea) |
-| D5 | Rango de `int` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
+| D5 | Rango de `int` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) | **ESTO NO LO DICE LA CONSIGNA COMO TAL, PREGUNTAR** 
 | D6 | Detección de real fuera de rango en `toInt` | Error semántico en tiempo de compilación **solo** si el real es una constante; si es una variable, error en tiempo de ejecución (se documenta igual como caso de `toInt`) |
-| D7 | Memoria | Estática global; variables locales de función también estáticas |
+| D7 | Memoria | Estática global; variables locales de función también estáticas | **PREGUNTAR**
 | D8 | Recursión | **No permitida** (llamada recursiva directa es error semántico) |
-| D9 | Parámetros de función | No existen; comunicación exclusivamente por variables globales |
+| D9 | Parámetros de función | No existen; comunicación exclusivamente por variables globales | **??**
 | D10 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
 | D11 | Comentarios | `// comentario de línea` (no se pide en la consigna, pero se recomienda para legibilidad de los programas de prueba) |
 | D12 | Bloque principal | El programa tiene un bloque `main { ... }` que se ejecuta al final, después de declarar globales y funciones |
@@ -42,6 +42,8 @@ No se admiten caracteres fuera de este alfabeto dentro de identificadores, núme
 ---
 
 ## 3. Palabras reservadas
+
+**Dadas por la consigna**
 
 ```
 int  real  function  main  return
@@ -109,6 +111,7 @@ main {
 
 ## 6. Gramática
 
+**2/9/2026: Gramatica hecha con Claude, revisar y re-hacer.**
 ```
 <programa>            ::= <decl_globales> <decl_funciones> "main" "{" <decl_locales> <sentencias> "}"
 
@@ -210,6 +213,8 @@ main {
 
 
 ## 9. Programa de ejemplo
+
+**2/09/2026: Se parece a C, cambio de último momento**
 
 ```
 int contador;
