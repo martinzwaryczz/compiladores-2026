@@ -3,9 +3,6 @@
 **Grupo:** E · **Lenguaje de implementación:** C (a confirmar por el grupo)
 **Estado:** en revisión — primera versión completa a partir de la consigna.
 
-> Nota: el nombre **DUOTIPO** es una propuesta (por la convivencia de `int`/`real`
-> con conversión explícita). Cambiarlo es solo renombrar el token del encabezado.
-
 ---
 
 ## 1. Decisiones globales
@@ -192,9 +189,33 @@ main {
 | `real` | `int` | No — requiere `toReal(int)` o `toInt(real)` explícito |
 
 
+| S1 | Toda variable usada debe haber sido declarada antes, en el alcance global o en el alcance local de la función/`main` donde se usa |
+| S2 | Una asignación `id = expresion` exige `tipo(id) == expresion.tipo`; en caso contrario, error semántico |
+| S3 | Una operación aritmética entre operandos de distinto tipo (`int` y `real` sin `toInt`/`toReal`) es error semántico |
+| S4 | Una comparación entre operandos de distinto tipo es error semántico |
+| S5 | El selector de un `switch` debe ser de tipo `int` |
+| S6 | Las etiquetas de `case` deben ser constantes enteras, sin repetirse dentro del mismo `switch` |
+| S7 | `return expresion` debe coincidir con el tipo declarado de la función; retornar `real` en una función `int` (o viceversa) sin conversión explícita es error semántico |
+| S8 | Una función no puede invocarse a sí misma, ni directa ni (fuera de alcance, ver §10) indirectamente — solo se exige detectar la directa |
+| S9 | `toInt(real)` sobre una constante real fuera del rango de `int` (§1, decisión 5) es error semántico |
+
+
 ---
 
 ## 8. Responsabilidad de cada error
+
+| Código | Descripción | Fase que lo detecta |
+| --- | --- | --- |
+| L01 | Carácter fuera del alfabeto / token mal formado | Léxico |
+| P01 | Token inesperado / estructura sintáctica inválida | Sintáctico |
+| E01 | Mezcla de `int` y `real` en operación aritmética o asignación sin conversión explícita | Semántico |
+| E02 | Comparación entre operandos de distinto tipo sin conversión explícita | Semántico |
+| E03 | Selector de `switch` no es de tipo `int` | Semántico |
+| E04 | Etiquetas de `case` repetidas dentro del mismo `switch` | Semántico |
+| E05 | Uso de variable no declarada, o uso antes de su declaración | Semántico |
+| E06 | Tipo de retorno de la función no coincide con el declarado | Semántico |
+| E07 | Llamada recursiva directa de una función | Semántico |
+| E08 | `toInt` sobre constante real fuera del rango de `int` | Semántico |
 
 
 ## 9. Programa de ejemplo
@@ -245,3 +266,14 @@ y `acumulado` recibe el resultado de `promedio()` (`3.0`).
 ---
 
 ## 10. Fuera de alcance
+
+- Arreglos, cadenas de caracteres, registros y punteros.
+- Funciones con parámetros (la consigna solo permite comunicación por globales).
+- Recursión indirecta (solo se exige detectar la directa; se documenta como
+  limitación conocida del compilador, no como funcionalidad soportada).
+- Operador de negación lógica (`not`) y operadores bit a bit.
+- Manejo de excepciones o errores en tiempo de ejecución más allá de `toInt`
+  fuera de rango sobre constantes.
+- Entrada/salida (no se define ninguna primitiva de lectura o impresión;
+  se asume que los casos de prueba verifican valores finales de variables).
+- Comentarios de bloque (`/* ... */`); solo se admite `//` de línea.
