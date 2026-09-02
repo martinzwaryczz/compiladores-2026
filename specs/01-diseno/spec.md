@@ -175,7 +175,10 @@ main {
 | `int` | `real` | No — requiere `toReal(int)` o `toInt(real)` explícito |
 | `real` | `int` | No — requiere `toReal(int)` o `toInt(real)` explícito |
 
+---
 
+| Regla | Definición |
+| --- | --- |
 | S1 | Toda variable usada debe haber sido declarada antes, en el alcance global o en el alcance local de la función/`main` donde se usa |
 | S2 | Una asignación `id = expresion` exige `tipo(id) == expresion.tipo`; en caso contrario, error semántico |
 | S3 | Una operación aritmética entre operandos de distinto tipo (`int` y `real` sin `toInt`/`toReal`) es error semántico |
