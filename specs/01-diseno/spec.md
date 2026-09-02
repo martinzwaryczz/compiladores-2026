@@ -168,7 +168,7 @@ main {
 
 **Tabla de compatibilidad de tipos** (operaciones aritméticas, asignación y comparación):
 
-| Operando A | Operando B | ¿Válido sin conversión? |
+| Operando A | Operando B | Válido sin conversión: Sí, No |
 | --- | --- | --- |
 | `int` | `int` | Sí |
 | `real` | `real` | Sí |
@@ -176,6 +176,7 @@ main {
 | `real` | `int` | No — requiere `toReal(int)` o `toInt(real)` explícito |
 
 ---
+
 
 | Regla | Definición |
 | --- | --- |
