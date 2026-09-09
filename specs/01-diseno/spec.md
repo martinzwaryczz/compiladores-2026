@@ -112,48 +112,48 @@ principal {
 
 **2/9/2026: Gramatica hecha con Claude, revisar y re-hacer.**
 ```
-<programa>            ::= <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
+<programa>            -> <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
 
-<decl_globales>        ::= <decl_var> <decl_globales> | λ
-<decl_locales>          ::= <decl_var> <decl_locales> | λ
-<decl_var>              ::= <tipo> id ";"
-<tipo>                   ::= "entero" | "real"
+<decl_globales>        -> <decl_var> <decl_globales> | λ
+<decl_locales>          -> <decl_var> <decl_locales> | λ
+<decl_var>              -> <tipo> id ";"
+<tipo>                   -> "entero" | "real"
 
-<decl_funciones>        ::= <decl_funcion> <decl_funciones> | λ
-<decl_funcion>           ::= "funcion" <tipo> id "(" ")" "{" <decl_locales> <sentencias> "}"
+<decl_funciones>        -> <decl_funcion> <decl_funciones> | λ
+<decl_funcion>           -> "funcion" <tipo> id "(" ")" "{" <decl_locales> <sentencias> "}"
 
-<sentencias>             ::= <sentencia> <sentencias> | λ
-<sentencia>              ::= <asignacion>
+<sentencias>             -> <sentencia> <sentencias> | λ
+<sentencia>              -> <asignacion>
                             | <segun>
                             | <mientras>
                             | <retorno>
                             | <llamada_funcion> ";"
 
-<asignacion>             ::= id "=" <expresion> ";"
+<asignacion>             -> id "=" <expresion> ";"
 
-<retorno>                ::= "retornar" <expresion> ";"
+<retorno>                -> "retornar" <expresion> ";"
 
-<llamada_funcion>        ::= id "(" ")"
+<llamada_funcion>        -> id "(" ")"
 
-<segun>                   ::= "segun" "(" id ")" "{" <lista_caso> <defecto> "}"
-<lista_caso>               ::= <caso> <lista_caso> | λ
-<caso>                     ::= "caso" num_int ":" <sentencias>
-<defecto>                  ::= "defecto" ":" <sentencias>
+<segun>                   -> "segun" "(" id ")" "{" <lista_caso> <defecto> "}"
+<lista_caso>               -> <caso> <lista_caso> | λ
+<caso>                     -> "caso" num_int ":" <sentencias>
+<defecto>                  -> "defecto" ":" <sentencias>
 
-<mientras>                ::= "mientras" "(" <condicion> ")" "{" <sentencias> "}"
+<mientras>                -> "mientras" "(" <condicion> ")" "{" <sentencias> "}"
 
-<condicion>               ::= <condicion> "y" <cond_y>
+<condicion>               -> <condicion> "y" <cond_y>
                              | <cond_y>
-<cond_y>                  ::= <cond_y> "o" <cond_prim>
+<cond_y>                  -> <cond_y> "o" <cond_prim>
                              | <cond_prim>
-<cond_prim>                ::= "(" <condicion> ")" | <comparacion>
-<comparacion>               ::= <expresion> <op_rel> <expresion>
-<op_rel>                    ::= "<" | ">" | "<=" | ">=" | "==" | "!="
+<cond_prim>                -> "(" <condicion> ")" | <comparacion>
+<comparacion>               -> <expresion> <op_rel> <expresion>
+<op_rel>                    -> "<" | ">" | "<=" | ">=" | "==" | "!="
 
-<expresion>               ::= <expresion> "+" <termino>
+<expresion>               -> <expresion> "+" <termino>
                              | <expresion> "-" <termino>
                              | <termino>
-<termino>                  ::= <termino> "*" <termino_n>
+<termino>                  -> <termino> "*" <termino_n>
                              | <termino> "/" <termino_n>
                              | <atomo>
 <termino_n>                     ::= id
