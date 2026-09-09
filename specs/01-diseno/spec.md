@@ -89,8 +89,10 @@ y  o
 | 32 | TK_SEMI | fin de sentencia | `;` |
 | 33 | TK_COMMA | separador | `,` |
 | 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
-| 35 | TK_EOF | fin de archivo | — |
-| 36 | TK_OTRO | carácter no reconocido | error léxico |
+| 35 | TK_INICIO_COMENT | inicio comentario | `/*` |
+| 36 | TK_FIN_COMENT | fin comentario | `*/` |
+| 37 | TK_EOF | fin de archivo | — |
+| 38 | TK_OTRO | carácter no reconocido | error léxico |
 
 ---
 
