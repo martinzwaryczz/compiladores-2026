@@ -82,8 +82,8 @@ y  o
 | 25 | TK_GE | mayor o igual | `>=` |
 | 26 | TK_EQ | igual | `==` |
 | 27 | TK_NEQ | distinto | `!=` |
-| 28 | TK_LPAREN | paréntesis izq. | `(` |
-| 29 | TK_RPAREN | paréntesis der. | `)` |
+| 28 | TK_LPAREN | paréntesis izquierda | `(` |
+| 29 | TK_RPAREN | paréntesis derecha | `)` |
 | 30 | TK_LBRACE | llave izq. | `{` |
 | 31 | TK_RBRACE | llave der. | `}` |
 | 32 | TK_SEMI | fin de sentencia | `;` |
