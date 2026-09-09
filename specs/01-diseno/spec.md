@@ -1,7 +1,7 @@
 # Spec — Diseño del lenguaje DUOTIPO
 
 **Grupo:** E · **Lenguaje de implementación:** C 
-**Estado:** en revisión — primera versión completa a partir de la consigna.
+**Estado:**
 
 ---
 
@@ -19,7 +19,7 @@
 | D8 | Recursión | **No permitida** (ERROR SEMANTICO) |
 | D9 | Parámetros de función | No permitidos | 
 | D10 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
-| D11 | Comentarios | /* */ comentario de línea` (no pedido realmente) |
+| D11 | Comentarios | /* */ comentario de línea` |
 | D12 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
 
 ---
@@ -69,8 +69,8 @@ y  o
 | 12 | TK_AND | conector lógico | `y` |
 | 13 | TK_OR | conector lógico | `o` |
 | 14 | TK_ID | identificador | letra (letra\|dígito\|`_`)* |
-| 15 | TK_NUM_INT | constante entera | dígito+ |
-| 16 | TK_NUM_REAL | constante real | dígito+ `.` dígito+ |
+| 15 | TK_NUM_INT | constante entera | dígito |
+| 16 | TK_NUM_REAL | constante real | dígito `.` dígito |
 | 17 | TK_ASSIGN | asignación | `=` |
 | 18 | TK_PLUS | suma | `+` |
 | 19 | TK_MINUS | resta | `-` |
@@ -84,8 +84,8 @@ y  o
 | 27 | TK_NEQ | distinto | `!=` |
 | 28 | TK_LPAREN | paréntesis izquierda | `(` |
 | 29 | TK_RPAREN | paréntesis derecha | `)` |
-| 30 | TK_LBRACE | llave izq. | `{` |
-| 31 | TK_RBRACE | llave der. | `}` |
+| 30 | TK_LBRACE | llave izquierda | `{` |
+| 31 | TK_RBRACE | llave derecha | `}` |
 | 32 | TK_SEMI | fin de sentencia | `;` |
 | 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
 | 35 | TK_INICIO_COMENT | inicio comentario | `/*` |
@@ -188,8 +188,8 @@ principal {
 | S5 | El selector de un `segun` debe ser de tipo `entero` |
 | S6 | Las etiquetas de `caso` deben ser constantes enteras, sin repetirse dentro del mismo `segun` |
 | S7 | `retornar expresion` debe coincidir con el tipo declarado de la función; retornar `real` en una función `entero` (o viceversa) sin conversión explícita es error semántico |
-| S8 | Una función no puede invocarse a sí misma, ni directa ni (fuera de alcance, ver §10) indirectamente — solo se exige detectar la directa |
-| S9 | `aEntero(real)` sobre una constante real fuera del rango de `entero` (§1, decisión D5) es error semántico |
+| S8 | Una función no puede invocarse a sí misma, ni directa ni indirectamente — solo se exige detectar la directa |
+| S9 | `aEntero(real)` sobre una constante real fuera del rango de `entero` es error semántico |
 
 ---
 
@@ -203,8 +203,8 @@ principal {
 | S5 | El selector de un `switch` debe ser de tipo `int` |
 | S6 | Las etiquetas de `case` deben ser constantes enteras, sin repetirse dentro del mismo `switch` |
 | S7 | `return expresion` debe coincidir con el tipo declarado de la función; retornar `real` en una función `int` (o viceversa) sin conversión explícita es error semántico |
-| S8 | Una función no puede invocarse a sí misma, ni directa ni (fuera de alcance, ver §10) indirectamente — solo se exige detectar la directa |
-| S9 | `toInt(real)` sobre una constante real fuera del rango de `int` (§1, decisión 5) es error semántico |
+| S8 | Una función no puede invocarse a sí misma, ni directa ni indirectamente — solo se exige detectar la directa |
+| S9 | `toInt(real)` sobre una constante real fuera del rango de `int` es error semántico |
 
 
 ---
@@ -272,3 +272,4 @@ principal {
     total = aReal(cantidad) * precioUnitario;
 }
 ```
+AGREGAR PROGRAMA CON **Y** y **O**.
