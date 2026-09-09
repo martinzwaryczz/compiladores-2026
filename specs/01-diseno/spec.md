@@ -113,15 +113,15 @@ principal {
 ```
 <programa>            ::= <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
 
-<decl_globales>        ::= <decl_var> <decl_globales> | ε
-<decl_locales>          ::= <decl_var> <decl_locales> | ε
+<decl_globales>        ::= <decl_var> <decl_globales> | λ
+<decl_locales>          ::= <decl_var> <decl_locales> | λ
 <decl_var>              ::= <tipo> id ";"
 <tipo>                   ::= "entero" | "real"
 
-<decl_funciones>        ::= <decl_funcion> <decl_funciones> | ε
+<decl_funciones>        ::= <decl_funcion> <decl_funciones> | λ
 <decl_funcion>           ::= "funcion" <tipo> id "(" ")" "{" <decl_locales> <sentencias> "}"
 
-<sentencias>             ::= <sentencia> <sentencias> | ε
+<sentencias>             ::= <sentencia> <sentencias> | λ
 <sentencia>              ::= <asignacion>
                             | <segun>
                             | <mientras>
@@ -135,7 +135,7 @@ principal {
 <llamada_funcion>        ::= id "(" ")"
 
 <segun>                   ::= "segun" "(" id ")" "{" <lista_caso> <defecto> "}"
-<lista_caso>               ::= <caso> <lista_caso> | ε
+<lista_caso>               ::= <caso> <lista_caso> | λ
 <caso>                     ::= "caso" num_int ":" <sentencias>
 <defecto>                  ::= "defecto" ":" <sentencias>
 
