@@ -87,7 +87,6 @@ y  o
 | 30 | TK_LBRACE | llave izq. | `{` |
 | 31 | TK_RBRACE | llave der. | `}` |
 | 32 | TK_SEMI | fin de sentencia | `;` |
-| 33 | TK_COMMA | separador | `,` |
 | 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
 | 35 | TK_INICIO_COMENT | inicio comentario | `/*` |
 | 36 | TK_FIN_COMENT | fin comentario | `*/` |
