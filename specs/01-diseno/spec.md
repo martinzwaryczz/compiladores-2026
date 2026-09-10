@@ -155,8 +155,8 @@ principal {
                              | <termino>
 <termino>                  -> <termino> "*" <termino_n>
                              | <termino> "/" <termino_n>
-                             | <atomo>
-<termino_n>                     ::= id
+                             | <termino_n>
+<termino_n>                     -> id
                              | num_int
                              | num_real
                              | "aEntero" "(" <expresion> ")"
