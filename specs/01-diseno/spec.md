@@ -203,7 +203,7 @@ principal {
 | S5 | El selector de un `switch` debe ser de tipo `int` |
 | S6 | Las etiquetas de `case` deben ser constantes enteras, sin repetirse dentro del mismo `switch` |
 | S7 | `return expresion` debe coincidir con el tipo declarado de la función; retornar `real` en una función `int` (o viceversa) sin conversión explícita es error semántico |
-| S8 | Una función no puede invocarse a sí misma, ni directa ni indirectamente — solo se exige detectar la directa |
+| S8 | Una función no puede invocarse a sí misma |
 | S9 | `toInt(real)` sobre una constante real fuera del rango de `int` es error semántico |
 
 
