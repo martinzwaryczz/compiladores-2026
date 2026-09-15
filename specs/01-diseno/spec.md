@@ -9,7 +9,7 @@
 
 | # | Decisión | Valor |
 | --- | --- | --- |
-| D1 | Tamaño de `int` | 32 bits |
+| D1 | Tamaño de `entero` | 32 bits |
 | D2 | Tamaño de `real` | 64 bits |
 | D3 | Sintaxis de conversión explícita | Funciones `aReal(x)` y `aEntero(x)` |
 | D4 | Comportamiento de `aEntero(x)` sobre un real |
