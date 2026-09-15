@@ -88,8 +88,6 @@ y  o
 | 31 | TK_RBRACE | llave derecha | `}` |
 | 32 | TK_SEMI | fin de sentencia | `;` |
 | 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
-| 35 | TK_INICIO_COMENT | inicio comentario | `/*` |
-| 36 | TK_FIN_COMENT | fin comentario | `*/` |
 | 37 | TK_EOF | fin de archivo | — |
 | 38 | TK_OTRO | carácter no reconocido | error léxico |
 
@@ -114,15 +112,15 @@ principal {
 ```
 <programa>            -> <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
 
-<decl_globales>        -> <decl_var> <decl_globales> | λ
-<decl_locales>          -> <decl_var> <decl_locales> | λ
+<decl_globales>        -> <decl_var> <decl_globales> | <decl_var>
+<decl_locales>          -> <decl_var> <decl_locales> | <decl_var>
 <decl_var>              -> <tipo> id ";"
 <tipo>                   -> "entero" | "real"
 
-<decl_funciones>        -> <decl_funcion> <decl_funciones> | λ
+<decl_funciones>        -> <decl_funcion> <decl_funciones> | <decl_funcion> 
 <decl_funcion>           -> "funcion" <tipo> id "(" ")" "{" <decl_locales> <sentencias> "}"
 
-<sentencias>             -> <sentencia> <sentencias> | λ
+<sentencias>             -> <sentencia> <sentencias> | <sentencia>
 <sentencia>              -> <asignacion>
                             | <segun>
                             | <mientras>
