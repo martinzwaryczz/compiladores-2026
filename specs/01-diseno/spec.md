@@ -90,7 +90,7 @@ y  o
 | 31 | TK_RBRACE | llave derecha | `}` |
 | 32 | TK_SEMI | fin de sentencia | `;` |
 | 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
-| 37 | TK_EOF | fin de archivo | ´__´ |
+| 37 | TK_EOF | fin de archivo | __ |
 | 38 | TK_OTRO | carácter no reconocido | error léxico |
 
 ---
