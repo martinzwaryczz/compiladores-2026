@@ -1,3 +1,5 @@
+------
+
 # Spec — Diseño del lenguaje DUOTIPO
 
 **Grupo:** E · **Lenguaje de implementación:** C 
