@@ -5,7 +5,7 @@
 | Nombre | Legajo | Rol |
 |--------|--------|-----|
 | Martín Zwarycz       |        |     |
-| Rosa Elena Flores       |        |     |
+| Rosa Elena N Flores       |  3566  |     |
 
 ## TP asignado
 
