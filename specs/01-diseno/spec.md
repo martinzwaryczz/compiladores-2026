@@ -34,7 +34,7 @@
 | Dígitos | `0`-`9` | Forman constantes numéricas (enteras y reales) e identificadores a partir del segundo carácter |
 | Identificador | letra seguida de letras, dígitos o `_` | Nombre de variable o función definido por el programador |
 | Símbolos de operador | `+` `-` `*` `/` `=` `<` `>` `!` | Operadores aritméticos, de asignación y relacionales (algunos se combinan en pares, ej. `<=`, `==`, `!=`) |
-| Símbolos de puntuación | `(` `)` `{` `}` `;` `,` `:` | Delimitan expresiones, bloques, sentencias y etiquetas de `caso`/`defecto` |
+| Símbolos de puntuación | `(` `)` `{` `}` `;` `:` | Delimitan expresiones, bloques, sentencias y etiquetas de `caso`/`defecto` |
 | Separadores | espacio, tabulación, salto de línea | No significativos, solo separan tokens entre sí |
 | Comentario | `/* */` todo lo que este entre los * | Ignorado por el analizador léxico, no genera token |
 | OTRO | cualquier carácter no incluido en las clases anteriores | No reconocido: el analizador léxico lo reporta como error léxico con el número de línea |
