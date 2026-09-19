@@ -36,7 +36,7 @@
 | Símbolos de operador | `+` `-` `*` `/` `=` `<` `>` `!` | Operadores aritméticos, de asignación y relacionales (algunos se combinan en pares, ej. `<=`, `==`, `!=`) |
 | Símbolos de puntuación | `(` `)` `{` `}` `;` `,` `:` | Delimitan expresiones, bloques, sentencias y etiquetas de `caso`/`defecto` |
 | Separadores | espacio, tabulación, salto de línea | No significativos, solo separan tokens entre sí |
-| Comentario | `/* */` hasta fin de línea | Ignorado por el analizador léxico, no genera token |
+| Comentario | `/* */` todo lo que este entre los * | Ignorado por el analizador léxico, no genera token |
 | OTRO | cualquier carácter no incluido en las clases anteriores | No reconocido: el analizador léxico lo reporta como error léxico con el número de línea |
 
 No se admiten caracteres fuera de este alfabeto dentro de identificadores, números u operadores; su aparición es un error léxico con número de línea (clase **`OTRO`**).
