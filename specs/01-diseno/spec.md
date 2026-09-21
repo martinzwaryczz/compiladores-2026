@@ -2,7 +2,10 @@
 
 # Spec — Diseño del lenguaje DUOTIPO
 
-**Grupo:** E · **Lenguaje de implementación:** C 
+**Grupo:** E 
+
+**Lenguaje de implementación:** C 
+
 **Estado:**
 
 ---
@@ -12,17 +15,20 @@
 | # | Decisión | Valor |
 | --- | --- | --- |
 | D1 | Tamaño de `entero` | 32 bits |
-| D2 | Tamaño de `real` | 64 bits |
+| D2 | Tamaño de `real` | 32 bits |
 | D3 | Sintaxis de conversión explícita | Funciones `aReal(x)` y `aEntero(x)` |
-| D4 | Comportamiento de `aEntero(x)` sobre un real |
-| D5 | Rango de `int` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
-| D6 | Detección de real fuera de rango en `aEntero` | Error semántico en tiempo de compilación **solo** si el real es una constante; si es una variable, error en tiempo de ejecución |
-| D7 | Memoria | Estática global; variables locales de función también estáticas |  
-| D8 | Recursión | **No permitida** (ERROR SEMANTICO) |
-| D9 | Parámetros de función | No permitidos | 
-| D10 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
-| D11 | Comentarios | /* */ comentario de línea` |
-| D12 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
+| D4 | Comportamiento de `aEntero(x)` sobre un real | Truncamiento
+| D5 | Rango de `entero` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
+| D6 | Detección de real fuera de rango en `aEntero` | Error semántico en tiempo de compilación **solo si el real es una constante**, si es una variable el error será en tiempo de ejecución |
+| D7 | Memoria | Estática global, variables locales de función también estáticas |  
+| D8 | Recursión | **No permitida** |
+| D9 | Declaración de variables y funciones | Las variables deben ser declaradas con su tipo antes de su primer uso
+| D10 | Variables en funciones | Las variables podrán ser declaradas dentro de las funciones |
+| D11 | Parámetros de función | No permitidos | 
+| D12 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
+| D13 | Comparaciones | Las comparaciones deben ser entre tipos iguales |
+| D13 | Comentarios | /* */ comentario de línea` |
+| D14 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
 
 ---
 
@@ -31,13 +37,11 @@
 | Clase | Caracteres | Descripción |
 | --- | --- | --- |
 | Letras | `a`-`z`, `A`-`Z` | Forman identificadores y palabras reservadas |
-| Dígitos | `0`-`9` | Forman constantes numéricas (enteras y reales) e identificadores a partir del segundo carácter |
-| Identificador | letra seguida de letras, dígitos o `_` | Nombre de variable o función definido por el programador |
-| Símbolos de operador | `+` `-` `*` `/` `=` `<` `>` `!` | Operadores aritméticos, de asignación y relacionales (algunos se combinan en pares, ej. `<=`, `==`, `!=`) |
-| Símbolos de puntuación | `(` `)` `{` `}` `;` `:` | Delimitan expresiones, bloques, sentencias y etiquetas de `caso`/`defecto` |
-| Separadores | espacio, tabulación, salto de línea | No significativos, solo separan tokens entre sí |
-| Comentario | `/* */` todo lo que este entre los * | Ignorado por el analizador léxico, no genera token |
-| OTRO | cualquier carácter no incluido en las clases anteriores | No reconocido: el analizador léxico lo reporta como error léxico con el número de línea |
+| Dígitos | `0`-`9` | Forman constantes numéricas (enteras y reales) e identificadores si están luego de una letra |
+| Símbolos de operador | `+` `-` `*` `/` `=` `<` `>` `!` | Operadores aritméticos, de asignación y relacionales |
+| Símbolos de puntuación | `(` `)` `{` `}` `;` `:` `.` | Delimitan expresiones, bloques, sentencias, etiquetas de `caso`/`defecto` y separan la parte entera de la decimal en números reales |
+| Separadores | espacio, tabulación, salto de línea | Separan tokens entre sí |
+| OTRO | cualquier carácter no incluido en las clases anteriores | Error léxico |
 
 No se admiten caracteres fuera de este alfabeto dentro de identificadores, números u operadores; su aparición es un error léxico con número de línea (clase **`OTRO`**).
 
