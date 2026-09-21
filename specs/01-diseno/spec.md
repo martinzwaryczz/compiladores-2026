@@ -277,9 +277,9 @@ principal {
 ```
 
 ## Automata
-<img width="1349" height="740" alt="image" src="https://github.com/user-attachments/assets/24c517e8-ea81-45a2-8163-a51f9f0de878" />
-<img width="1335" height="806" alt="image" src="https://github.com/user-attachments/assets/c9c9e515-c4c9-4a4b-ba7f-03dcf8bef8fa" />
-<img width="844" height="763" alt="image" src="https://github.com/user-attachments/assets/2771845f-24d3-4152-a78d-32ce3bbb9ceb" />
+
+<img width="1004" height="801" alt="image" src="https://github.com/user-attachments/assets/fd72291b-14c5-4239-878c-07f9d7b8cdc5" />
+<img width="978" height="710" alt="image" src="https://github.com/user-attachments/assets/bf9cf655-9b14-40f6-a71b-125f8113cc64" />
 
 ## Matrices
 
