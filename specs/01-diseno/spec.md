@@ -275,4 +275,15 @@ principal {
     total = aReal(cantidad) * precioUnitario;
 }
 ```
-AGREGAR PROGRAMA CON **Y** y **O**.
+
+## Automata
+<img width="1349" height="740" alt="image" src="https://github.com/user-attachments/assets/24c517e8-ea81-45a2-8163-a51f9f0de878" />
+<img width="1335" height="806" alt="image" src="https://github.com/user-attachments/assets/c9c9e515-c4c9-4a4b-ba7f-03dcf8bef8fa" />
+<img width="844" height="763" alt="image" src="https://github.com/user-attachments/assets/2771845f-24d3-4152-a78d-32ce3bbb9ceb" />
+
+## Matrices
+
+Adjuntamos enlace: https://docs.google.com/spreadsheets/d/1-2BRShexuEwyPNI9APuIPFd-orOyPVHpneDn4_roLZs/edit?gid=0#gid=0
+
+
+
