@@ -114,7 +114,6 @@ principal {
 
 ## 6. Gramática
 
-**2/9/2026: Gramatica hecha con Claude, revisar y re-hacer.**
 ```
 <programa>            -> <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
 
