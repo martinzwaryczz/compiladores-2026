@@ -72,7 +72,7 @@ produzca la lista completa.
 | separador                 | E21    | -1    | -1     | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    |
 | posible fin de archivo    | E22    | E0    | E0     | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | E0    | -1    | E0    | E22   |
 | comentario                 | E23    | E23   | E23    | E23   | E23   | E23   | E24   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   |
-| posible fin comentario    | E24    | E23   | E23    | E23   | E23   | E23   | E23   | E23    | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   |
+| posible fin comentario    | E24    | E23   | E23    | E23   | E23   | E23   | -1   | E23    | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   | E23   |
 | entero                    | E25    | -1    | E25    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | E26   | -1    |
 | real                      | E26    | -1    | E26    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    | -1    |
 
