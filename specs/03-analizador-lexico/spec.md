@@ -1,4 +1,4 @@
-# Spec — Analizador léxico de UNO
+# Spec — Analizador léxico de DUOTIPO
 
 **Grupo:** ejemplo de cátedra · **Lenguaje de implementación:** C
 **Depende de:** `specs/01-diseno/spec.md`
