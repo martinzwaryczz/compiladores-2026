@@ -278,8 +278,7 @@ principal {
 
 ## Automata
 
-<img width="1004" height="801" alt="image" src="https://github.com/user-attachments/assets/fd72291b-14c5-4239-878c-07f9d7b8cdc5" />
-<img width="978" height="710" alt="image" src="https://github.com/user-attachments/assets/bf9cf655-9b14-40f6-a71b-125f8113cc64" />
+<img width="2788" height="1342" alt="AUTOMATA_COMPILADORES-compilador v 2" src="https://github.com/user-attachments/assets/9ea16ebe-2073-4c78-aea2-04cc1ebdd96f" />
 
 ## Matrices
 
