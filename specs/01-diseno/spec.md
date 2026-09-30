@@ -115,57 +115,86 @@ principal {
 ## 6. Gramática
 
 ```
-<programa>            -> <decl_globales> <decl_funciones> "principal" "{" <decl_locales> <sentencias> "}"
+<programa>  →  <declaraciones_iniciales> "principal" "{" <bloque_principal> "}"
+                            | "principal" "{" <bloque_principal> "}"
 
-<decl_globales>        -> <decl_var> <decl_globales> | <decl_var>
-<decl_locales>          -> <decl_var> <decl_locales> | <decl_var>
-<decl_var>              -> <tipo> id ";"
-<tipo>                   -> "entero" | "real"
+<declaraciones_iniciales>  → <decl_globales>
+                                                | <decl_funciones>
+                                                | <decl_globales> <decl_funciones>
 
-<decl_funciones>        -> <decl_funcion> <decl_funciones> | <decl_funcion> 
-<decl_funcion>           -> "funcion" <tipo> id "(" ")" "{" <decl_locales> <sentencias> "}"
+<bloque_principal>  → <decl_locales> <sentencias> | <sentencias>
 
-<sentencias>             -> <sentencia> <sentencias> | <sentencia>
-<sentencia>              -> <asignacion>
+<decl_globales>   → <decl_globales> <decl_var> | <decl_var>
+
+<decl_locales>   → <decl_locales> <decl_var> | <decl_var>
+
+<decl_var>          → <tipo> identificador ";"
+
+<tipo>  → "entero" | "real"
+
+<decl_funciones> → <decl_funciones> <decl_funcion>
+                                   | <decl_funcion>
+
+<decl_funcion>  →  "funcion" <tipo> identificador "(" ")" "{" <bloque_funcion> "}"
+
+<bloque_funcion> → <decl_locales> <sentencias>
+                                  | <sentencias>
+
+<sentencias> → <sentencias> <sentencia> | <sentencia>
+
+<sentencia>   → <asignacion>
                             | <segun>
                             | <mientras>
                             | <retorno>
                             | <llamada_funcion> ";"
 
-<asignacion>             -> id "=" <expresion> ";"
+<asignacion>  → identificador "=" <expresion> ";"
 
-<retorno>                -> "retornar" <expresion> ";"
+<retorno>  → "retornar" <expresion> ";"
 
-<llamada_funcion>        -> id "(" ")"
+<llamada_funcion>   → identificador "(" ")"
 
-<segun>                   -> "segun" "(" id ")" "{" <lista_caso> <defecto> "}"
-<lista_caso>               -> <caso> <lista_caso> | λ
-<caso>                     -> "caso" num_int ":" <sentencias>
-<defecto>                  -> "defecto" ":" <sentencias>
+<segun>  → "segun" "(" identificador ")" "{" <casos> <defecto> "}"
+                    | "segun" "(" identificador ")" "{" <defecto> "}"
 
-<mientras>                -> "mientras" "(" <condicion> ")" "{" <sentencias> "}"
+<casos>               → <casos> <caso>
+                             | <caso>
 
-<condicion>               -> <condicion> "y" <cond_y>
-                             | <cond_y>
-<cond_y>                  -> <cond_y> "o" <cond_prim>
-                             | <cond_prim>
-<cond_prim>                -> "(" <condicion> ")" | <comparacion>
-<comparacion>               -> <expresion> <op_rel> <expresion>
-<op_rel>                    -> "<" | ">" | "<=" | ">=" | "==" | "!="
+<caso>                   → "caso" numero_entero ":" <sentencias>
+<defecto>              → "defecto" ":" <sentencias>
 
-<expresion>               -> <expresion> "+" <termino>
-                             | <expresion> "-" <termino>
-                             | <termino>
-<termino>                  -> <termino> "*" <termino_n>
-                             | <termino> "/" <termino_n>
-                             | <termino_n>
-<termino_n>                     -> id
-                             | num_int
-                             | num_real
+<mientras> → "mientras" "(" <condicion> ")" "{" <sentencias> "}"
+
+<condicion>  → <condicion> "o" <cond_y>
+                          | <cond_y>
+
+<cond_y>  → <cond_y> "y" <cond_prim>
+                       | <cond_prim>
+
+<cond_prim>   → "(" <condicion> ")"
+                              | <comparacion>
+
+<comparacion>  → <expresion> <op_rel> <expresion>
+
+<op_rel> → "<" | ">" | "<=" | ">=" | "==" | "!="
+
+<expresion> → <expresion> "+" <termino>
+                          | <expresion> "-" <termino>
+                          | <termino>
+
+<termino>    → <termino> "*" <termino_n>
+                          | <termino> "/" <termino_n>
+                          | <termino_n>
+
+<termino_n>  → "-" <termino_n>
+                             | identificador
+                             | numero_entero
+                             | numero_real
                              | "aEntero" "(" <expresion> ")"
                              | "aReal" "(" <expresion> ")"
                              | "(" <expresion> ")"
                              | <llamada_funcion>
+
 ```
 
 
@@ -247,24 +276,6 @@ principal {
 
 
 ```
-entero diaSemana;
-entero esFinDeSemana;
-
-principal {
-    diaSemana = 6;
-
-    segun (diaSemana) {
-        caso 6:
-            esFinDeSemana = 1;
-        caso 7:
-            esFinDeSemana = 1;
-        defecto:
-            esFinDeSemana = 0;
-    }
-}
-```
-
-```
 entero cantidad;
 real precioUnitario;
 real total;
@@ -274,6 +285,27 @@ principal {
     precioUnitario = 250.5;
     total = aReal(cantidad) * precioUnitario;
 }
+
+```
+
+```
+entero baseCalculo;
+real resultadoGlobal;
+
+funcion real calcularImpuesto() {
+    real tasa;
+    real subtotal;
+
+    tasa = 0.21;
+    subtotal = aReal(baseCalculo);
+    retornar subtotal * tasa;
+}
+
+principal {
+    baseCalculo = 500;
+    resultadoGlobal = calcularImpuesto();
+}
+
 ```
 
 ## Automata
