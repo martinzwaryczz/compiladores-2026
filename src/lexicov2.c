@@ -137,23 +137,38 @@ int yylex(void) {
             return 38;
         }
 
-        // Operadores de 1 carácter en E0
+        // Si estamos en E0 y leemos un símbolo/operador (no letra, no dígito, no espacio)
         if (estado == 0 && columna != 0 && columna != 1 && columna != 18) {
             auxLen = 0;
             auxiliar[auxLen++] = (char)caracter;
             auxiliar[auxLen] = '\0';
         }
-
-        // Operadores dobles (==, <=, >=, !=)
-        if ((estado == 3 || estado == 9 || estado == 11 || estado == 13) && columna == 2) {
-            auxiliar[auxLen++] = (char)caracter;
-            auxiliar[auxLen] = '\0';
+        // Si estamos acumulando un identificador o palabra reservada
+        else if ((estado == 1 || estado == 2 || estado == 2bis) && (columna == 0 || columna == 1 || columna == 16)) {
+            if (auxLen < 255) {
+                auxiliar[auxLen++] = (char)caracter;
+                auxiliar[auxLen] = '\0';
+            }
+        }
+        // Si estamos en un operador de 1 car y viene otro igual para hacer uno doble (==, <=, >=, !=)
+        else if ((estado == 3 || estado == 9 || estado == 11 || estado == 13) && columna == 2) {
+            if (auxLen < 255) {
+                auxiliar[auxLen++] = (char)caracter;
+                auxiliar[auxLen] = '\0';
+            }
+        }
+        // Si estamos leyendo números enteros o reales
+        else if ((estado == 25 || estado == 26) && (columna == 1 || columna == 17)) {
+            if (auxLen < 255) {
+                auxiliar[auxLen++] = (char)caracter;
+                auxiliar[auxLen] = '\0';
+            }
         }
 
-        // Ejecutar rutina semántica
+        // Ejecutar rutina semántica de la matriz
         proceso[estado][columna]((char)caracter);
 
-        // Si la celda define un corte
+        // Si la celda define un corte (siguiente estado == -1)
         if (siguiente_estado[estado][columna] == -1 && tokens[estado][columna] != -1) {
             int token_id = tokens[estado][columna];
 
@@ -178,6 +193,7 @@ int yylex(void) {
 
     return 0;
 }
+
 
 // ------------------- PROGRAMA PRINCIPAL -------------------
 int main(void) {
