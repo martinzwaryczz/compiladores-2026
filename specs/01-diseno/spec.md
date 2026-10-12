@@ -305,6 +305,45 @@ principal {
 
 ```
 
+```
+entero diaSemana;
+entero esFinDeSemana;
+
+principal {
+    diaSemana = 6;
+
+    segun (diaSemana) {
+        caso 6:
+            esFinDeSemana = 1;
+        caso 7:
+            esFinDeSemana = 1;
+        defecto:
+            esFinDeSemana = 0;
+    }
+}
+
+```
+
+```
+entero baseCalculo;
+real resultadoGlobal;
+
+funcion real calcularImpuesto() {
+    real tasa;
+    real subtotal;
+
+    tasa = 0.21;
+    subtotal = aReal(baseCalculo);
+    retornar subtotal * tasa;
+}
+
+principal {
+    baseCalculo = 500;
+    resultadoGlobal = calcularImpuesto();
+}
+
+```
+
 ## Automata
 
 <img width="2789" height="1343" alt="AUTOMATA_COMPILADORES-compilador v 2 (1)" src="https://github.com/user-attachments/assets/dd5ee0b6-1da3-42bb-8378-fdd7ba8c5357" />
