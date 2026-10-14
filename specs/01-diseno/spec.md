@@ -346,7 +346,7 @@ principal {
 
 ## Automata
 
-<img width="2789" height="1343" alt="AUTOMATA_COMPILADORES-compilador v 2 (1)" src="https://github.com/user-attachments/assets/dd5ee0b6-1da3-42bb-8378-fdd7ba8c5357" />
+<img width="2691" height="1493" alt="AUTOMATA_COMPILADORES-DuoTipo v 4 drawio" src="https://github.com/user-attachments/assets/c8984f60-dc39-49d6-b46b-d777bca5dc32" />
 
 ## Matrices
 
