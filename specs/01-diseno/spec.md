@@ -72,7 +72,7 @@ y  o
 | 11 | TK_TOREAL | conversión a real | `aReal` |
 | 12 | TK_AND | conector lógico | `y` |
 | 13 | TK_OR | conector lógico | `o` |
-| 14 | TK_ID | identificador | letra (letra\|dígito\|`_`)* |
+| 14 | TK_ID | identificador | letra (letra\|dígito\)* |
 | 15 | TK_NUM_INT | constante entera | dígito |
 | 16 | TK_NUM_REAL | constante real | dígito `.` dígito |
 | 17 | TK_ASSIGN | asignación | `=` |
