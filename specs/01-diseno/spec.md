@@ -17,7 +17,7 @@
 | D3 | Sintaxis de conversión explícita | Funciones `aReal(x)` y `aEntero(x)` |
 | D4 | Comportamiento de `aEntero(x)` sobre un real | Truncamiento
 | D5 | Rango de `entero` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
-| D6 | Los identificadores no pueden exceder los 20 caracteres |
+| D6 | Tamaño de identificadores |Los identificadores no pueden exceder los 20 caracteres |
 | D7 | Detección de real fuera de rango en `aEntero` | Error semántico en tiempo de compilación **solo si el real es una constante**, si es una variable el error será en tiempo de ejecución |
 | D8 | Memoria | Estática global, variables locales de función también estáticas |  
 | D9 | Recursión | **No permitida** |
