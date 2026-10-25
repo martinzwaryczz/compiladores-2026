@@ -17,16 +17,17 @@
 | D3 | Sintaxis de conversión explícita | Funciones `aReal(x)` y `aEntero(x)` |
 | D4 | Comportamiento de `aEntero(x)` sobre un real | Truncamiento
 | D5 | Rango de `entero` | `-2147483648 .. 2147483647` (complemento a 2, 32 bits) |
-| D6 | Detección de real fuera de rango en `aEntero` | Error semántico en tiempo de compilación **solo si el real es una constante**, si es una variable el error será en tiempo de ejecución |
-| D7 | Memoria | Estática global, variables locales de función también estáticas |  
-| D8 | Recursión | **No permitida** |
-| D9 | Declaración de variables y funciones | Las variables deben ser declaradas con su tipo antes de su primer uso
-| D10 | Variables en funciones | Las variables podrán ser declaradas dentro de las funciones |
-| D11 | Parámetros de función | No permitidos | 
-| D12 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
-| D13 | Comparaciones | Las comparaciones deben ser entre tipos iguales |
-| D13 | Comentarios | /* */ comentario de línea |
-| D14 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
+| D6 | Los identificadores no pueden exceder los 20 caracteres |
+| D7 | Detección de real fuera de rango en `aEntero` | Error semántico en tiempo de compilación **solo si el real es una constante**, si es una variable el error será en tiempo de ejecución |
+| D8 | Memoria | Estática global, variables locales de función también estáticas |  
+| D9 | Recursión | **No permitida** |
+| D10 | Declaración de variables y funciones | Las variables deben ser declaradas con su tipo antes de su primer uso
+| D11 | Variables en funciones | Las variables podrán ser declaradas dentro de las funciones |
+| D12 | Parámetros de función | No permitidos | 
+| D13 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
+| D14 | Comparaciones | Las comparaciones deben ser entre tipos iguales |
+| D15 | Comentarios | /* */ comentario de línea |
+| D16 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
 
 ---
 
