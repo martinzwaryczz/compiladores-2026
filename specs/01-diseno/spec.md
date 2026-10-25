@@ -59,40 +59,40 @@ y  o
 
 | Código | Nombre | Token | Lexema |
 | --- | --- | --- | --- |
-| 1 | TK_INT | tipo entero | `entero` |
-| 2 | TK_REAL | tipo real | `real` |
-| 3 | TK_FUNCTION | declaración de función | `funcion` |
-| 4 | TK_MAIN | bloque principal | `principal` |
-| 5 | TK_RETURN | retorno | `retornar` |
-| 6 | TK_SWITCH | segun | `segun` |
-| 7 | TK_CASE | caso | `caso` |
-| 8 | TK_DEFAULT | defecto | `defecto` |
-| 9 | TK_WHILE | mientras | `mientras` |
-| 10 | TK_TOINT | conversión a entero | `aEntero` |
-| 11 | TK_TOREAL | conversión a real | `aReal` |
-| 12 | TK_AND | conector lógico | `y` |
-| 13 | TK_OR | conector lógico | `o` |
-| 14 | TK_ID | identificador | letra (letra\|dígito\)* |
-| 15 | TK_NUM_INT | constante entera | dígito |
-| 16 | TK_NUM_REAL | constante real | dígito `.` dígito |
-| 17 | TK_ASSIGN | asignación | `=` |
-| 18 | TK_PLUS | suma | `+` |
-| 19 | TK_MINUS | resta | `-` |
-| 20 | TK_MULT | multiplicación | `*` |
-| 21 | TK_DIV | división | `/` |
-| 22 | TK_LT | menor | `<` |
-| 23 | TK_GT | mayor | `>` |
-| 24 | TK_LE | menor o igual | `<=` |
-| 25 | TK_GE | mayor o igual | `>=` |
-| 26 | TK_EQ | igual | `==` |
-| 27 | TK_NEQ | distinto | `!=` |
-| 28 | TK_LPAREN | paréntesis izquierda | `(` |
-| 29 | TK_RPAREN | paréntesis derecha | `)` |
-| 30 | TK_LBRACE | llave izquierda | `{` |
-| 31 | TK_RBRACE | llave derecha | `}` |
-| 32 | TK_SEMI | fin de sentencia | `;` |
-| 34 | TK_COLON | separador de etiqueta caso/defecto | `:` |
-| 37 | TK_OTRO | carácter no reconocido | error léxico |
+| 301 | TK_INT | tipo entero | `entero` |
+| 302 | TK_REAL | tipo real | `real` |
+| 303 | TK_FUNCTION | declaración de función | `funcion` |
+| 304 | TK_MAIN | bloque principal | `principal` |
+| 305 | TK_RETURN | retorno | `retornar` |
+| 306 | TK_SWITCH | segun | `segun` |
+| 307 | TK_CASE | caso | `caso` |
+| 308 | TK_DEFAULT | defecto | `defecto` |
+| 309 | TK_WHILE | mientras | `mientras` |
+| 310 | TK_TOINT | conversión a entero | `aEntero` |
+| 311 | TK_TOREAL | conversión a real | `aReal` |
+| 312 | TK_AND | conector lógico | `y` |
+| 313 | TK_OR | conector lógico | `o` |
+| 314 | TK_ID | identificador | letra (letra\|dígito\)* |
+| 315 | TK_NUM_INT | constante entera | dígito |
+| 316 | TK_NUM_REAL | constante real | dígito `.` dígito |
+| 317 | TK_ASSIGN | asignación | `=` |
+| 318 | TK_PLUS | suma | `+` |
+| 319 | TK_MINUS | resta | `-` |
+| 320 | TK_MULT | multiplicación | `*` |
+| 321 | TK_DIV | división | `/` |
+| 322 | TK_LT | menor | `<` |
+| 323 | TK_GT | mayor | `>` |
+| 324 | TK_LE | menor o igual | `<=` |
+| 325 | TK_GE | mayor o igual | `>=` |
+| 326 | TK_EQ | igual | `==` |
+| 327 | TK_NEQ | distinto | `!=` |
+| 328 | TK_LPAREN | paréntesis izquierda | `(` |
+| 329 | TK_RPAREN | paréntesis derecha | `)` |
+| 330 | TK_LBRACE | llave izquierda | `{` |
+| 331 | TK_RBRACE | llave derecha | `}` |
+| 332 | TK_SEMI | fin de sentencia | `;` |
+| 334 | TK_COLON | separador de etiqueta caso/defecto | `:` |
+| 337 | TK_OTRO | carácter no reconocido | error léxico |
 
 ---
 
