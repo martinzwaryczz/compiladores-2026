@@ -1,11 +1,5 @@
 # Spec — Analizador léxico de DUOTIPO
 
-**Grupo:** ejemplo de cátedra · **Lenguaje de implementación:** C
-**Depende de:** `specs/01-diseno/spec.md`
-**Produce:** `src/lexico/` · escribe en la tabla de símbolos definida en `specs/02-tabla-simbolos/spec.md`
-
----
-
 ## 1. Alcance e interfaz
 
 Función `yylex()` invocada por el analizador sintáctico. Devuelve **un token por
