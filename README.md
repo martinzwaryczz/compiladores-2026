@@ -2,10 +2,10 @@
 
 ## Integrantes
 
-| Nombre | Legajo | Rol |
-|--------|--------|-----|
-| Martín Zwarycz       |   6245     |     |
-| Rosa Elena N Flores       |  3566  |     |
+| Nombre | Legajo | 
+|--------|--------|
+| Martín Zwarycz       |   6245     |     
+| Rosa Elena N Flores       |  3566  |     
 
 ## TP asignado
 
