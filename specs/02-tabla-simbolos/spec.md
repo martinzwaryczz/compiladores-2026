@@ -19,10 +19,9 @@ Mapeo de atributos mínimos obligatorios:
 
 - **nombre:** Cadena con el lexema original para globales y constantes, o nombre calificado para locales.
 - **tipo:** Clasificación del símbolo _(ENTERO, REAL, CTE_ENTERA, CTE_REAL, FUNCION)_.
--**valor:** Cadena con el valor literal en caso de constantes numéricas, o - para variables y funciones.
+- **valor:** Cadena con el valor literal en caso de constantes numéricas, o - para variables y funciones.
 - **longitud:** Cantidad de caracteres del nombre registrado _(strlen)_.
 
-Las constantes literales numéricas se prefijan con un guion bajo (_) (ejemplo: _10, _3.14).
 
 La función de inserción realiza una búsqueda previa, si un identificador ya existe dentro del mismo ámbito, se rechaza la duplicación; si una constante literal numérica ya fue registrada, se reutiliza la entrada existente.
 
