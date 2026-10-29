@@ -1,0 +1,18 @@
+/* Programa que utiliza estructuras de control (mientras) */
+
+entero limite;
+
+principal {
+    entero contador;
+    entero acumulador;
+    
+    limite = 10;
+    contador = 0;
+    acumulador = 0;
+
+    mientras (contador < limite y (acumulador <= 50 o contador != 5)) {
+        acumulador = acumulador + contador * 2;
+        contador = contador + 1;
+    }
+}
+

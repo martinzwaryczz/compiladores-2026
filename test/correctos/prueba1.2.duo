@@ -1,0 +1,19 @@
+/* Programa que utiliza estructuras de control (segun)*/
+
+principal {
+    entero selector;
+    entero resultado;
+    
+    selector = 2;
+    resultado = 0;
+    
+    segun (selector) {
+        caso 1:
+            resultado = 10;
+        caso 2:
+            resultado = 20;
+            selector = selector + 1;
+        defecto:
+            resultado = -1;
+    }
+}

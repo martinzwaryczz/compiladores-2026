@@ -1,0 +1,15 @@
+/* Programa que implementa una función */
+
+real factorGlobal;
+
+funcion real calcularImpuesto() {
+    real tasa;
+    tasa = 1.21;
+    retornar tasa * factorGlobal;
+}
+
+principal {
+    real total;
+    factorGlobal = 100.5;
+    total = calcularImpuesto();
+}
