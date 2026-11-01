@@ -51,7 +51,7 @@ No se admiten caracteres fuera de este alfabeto dentro de identificadores, núme
 ```
 entero  real  funcion  principal  retornar
 segun  caso  defecto  mientras
-aEntero  aReal
+aEntero  aReal escribir
 y  o
 ```
 ---
