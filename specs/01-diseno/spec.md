@@ -26,7 +26,7 @@
 | D12 | Parámetros de función | No permitidos | 
 | D13 | Valor de retorno de función | Obligatorio, de tipo declarado; no se permite retornar un tipo distinto sin conversión |
 | D14 | Comparaciones | Las comparaciones deben ser entre tipos iguales |
-| D15 | Comentarios | /* */ comentario de línea |
+| D15 | Comentarios | /* */ comentario |
 | D16 | Bloque principal | El programa tiene un bloque `principal { ... }` que se ejecuta al final, después de declarar globales y funciones |
 
 ---
@@ -93,6 +93,7 @@ y  o
 | 331 | TK_RBRACE | llave derecha | `}` |
 | 332 | TK_SEMI | fin de sentencia | `;` |
 | 334 | TK_COLON | separador de etiqueta caso/defecto | `:` |
+| 335 | TK_ESCR | escribir |  `escribir` |
 | 337 | TK_OTRO | carácter no reconocido | error léxico |
 
 ---
