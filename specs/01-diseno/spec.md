@@ -1,4 +1,4 @@
-# Spec — Diseño del lenguaje DUOTIPO
+# Spec — Diseño del lenguaje DOTIPO
 
 **Grupo:** E 
 
@@ -114,85 +114,93 @@ principal {
 ## 6. Gramática
 
 ```
-<programa>  →  <declaraciones_iniciales> "principal" "{" <bloque_principal> "}"
+<programa>                 → <declaraciones_iniciales> "principal" "{" <bloque_principal> "}"
                             | "principal" "{" <bloque_principal> "}"
 
 <declaraciones_iniciales>  → <decl_globales>
-                                                | <decl_funciones>
-                                                | <decl_globales> <decl_funciones>
+                            | <decl_funciones>
+                            | <decl_globales> <decl_funciones>
 
-<bloque_principal>  → <decl_locales> <sentencias> | <sentencias>
+<bloque_principal>         → <decl_locales> <sentencias>
+                            | <sentencias>
 
-<decl_globales>   → <decl_globales> <decl_var> | <decl_var>
+<decl_globales>            → <decl_globales> <decl_var>
+                            | <decl_var>
 
-<decl_locales>   → <decl_locales> <decl_var> | <decl_var>
+<decl_locales>             → <decl_locales> <decl_var>
+                            | <decl_var>
 
-<decl_var>          → <tipo> identificador ";"
+<decl_var>                 → <tipo> identificador ";"
 
-<tipo>  → "entero" | "real"
+<tipo>                     → "entero" | "real"
 
-<decl_funciones> → <decl_funciones> <decl_funcion>
-                                   | <decl_funcion>
+<decl_funciones>           → <decl_funciones> <decl_funcion>
+                            | <decl_funcion>
 
-<decl_funcion>  →  "funcion" <tipo> identificador "(" ")" "{" <bloque_funcion> "}"
+<decl_funcion>             → "funcion" <tipo> identificador "(" ")" "{" <bloque_funcion> "}"
 
-<bloque_funcion> → <decl_locales> <sentencias>
-                                  | <sentencias>
+<bloque_funcion>           → <decl_locales> <sentencias>
+                            | <sentencias>
 
-<sentencias> → <sentencias> <sentencia> | <sentencia>
+<sentencias>               → <sentencias> <sentencia>
+                            | <sentencia>
 
-<sentencia>   → <asignacion>
+<sentencia>                → <asignacion>
                             | <segun>
                             | <mientras>
                             | <retorno>
                             | <llamada_funcion> ";"
+                            | <salida>
 
-<asignacion>  → identificador "=" <expresion> ";"
+<salida>                   → "escribir" "(" identificador ")" ";"
 
-<retorno>  → "retornar" <expresion> ";"
+<asignacion>               → identificador "=" <expresion> ";"
 
-<llamada_funcion>   → identificador "(" ")"
+<retorno>                  → "retornar" <expresion> ";"
 
-<segun>  → "segun" "(" identificador ")" "{" <casos> <defecto> "}"
-                    | "segun" "(" identificador ")" "{" <defecto> "}"
+<llamada_funcion>          → identificador "(" ")"
 
-<casos>               → <casos> <caso>
-                             | <caso>
+<segun>                    → "segun" "(" identificador ")" "{" <casos> <defecto> "}"
+                            | "segun" "(" identificador ")" "{" <defecto> "}"
 
-<caso>                   → "caso" numero_entero ":" <sentencias>
-<defecto>              → "defecto" ":" <sentencias>
+<casos>                    → <casos> <caso>
+                            | <caso>
 
-<mientras> → "mientras" "(" <condicion> ")" "{" <sentencias> "}"
+<caso>                     → "caso" numero_entero ":" <sentencias>
 
-<condicion>  → <condicion> "o" <cond_y>
-                          | <cond_y>
+<defecto>                  → "defecto" ":" <sentencias>
 
-<cond_y>  → <cond_y> "y" <cond_prim>
-                       | <cond_prim>
+<mientras>                 → "mientras" "(" <condicion> ")" "{" <sentencias> "}"
 
-<cond_prim>   → "(" <condicion> ")"
-                              | <comparacion>
+<condicion>                → <condicion> "o" <cond_y>
+                            | <cond_y>
 
-<comparacion>  → <expresion> <op_rel> <expresion>
+<cond_y>                   → <cond_y> "y" <cond_prim>
+                            | <cond_prim>
 
-<op_rel> → "<" | ">" | "<=" | ">=" | "==" | "!="
+<cond_prim>                → "(" <condicion> ")"
+                            | <comparacion>
 
-<expresion> → <expresion> "+" <termino>
-                          | <expresion> "-" <termino>
-                          | <termino>
+<comparacion>              → <expresion> <op_rel> <expresion>
 
-<termino>    → <termino> "*" <termino_n>
-                          | <termino> "/" <termino_n>
-                          | <termino_n>
+<op_rel>                   → "<" | ">" | "<=" | ">=" | "==" | "!="
 
-<termino_n>  → "-" <termino_n>
-                             | identificador
-                             | numero_entero
-                             | numero_real
-                             | "aEntero" "(" <expresion> ")"
-                             | "aReal" "(" <expresion> ")"
-                             | "(" <expresion> ")"
-                             | <llamada_funcion>
+<expresion>                → <expresion> "+" <termino>
+                            | <expresion> "-" <termino>
+                            | <termino>
+
+<termino>                  → <termino> "*" <termino_n>
+                            | <termino> "/" <termino_n>
+                            | <termino_n>
+
+<termino_n>                → "-" <termino_n>
+                            | identificador
+                            | numero_entero
+                            | numero_real
+                            | "aEntero" "(" <expresion> ")"
+                            | "aReal" "(" <expresion> ")"
+                            | "(" <expresion> ")"
+                            | <llamada_funcion>
 
 ```
 
@@ -252,8 +260,11 @@ principal {
 
     mientras (contador <= 5) {
         suma = suma + contador;
+        escribir(suma);
         contador = contador + 1;
     }
+
+    escribir(contador);
 }
 ```
 
@@ -267,6 +278,8 @@ principal {
     cantidad = 4;
     precioUnitario = 250.5;
     total = aReal(cantidad) * precioUnitario;
+    escribir(cantidad);
+    escribir(total);
 }
 
 ```
@@ -281,12 +294,15 @@ funcion real calcularImpuesto() {
 
     tasa = 0.21;
     subtotal = aReal(baseCalculo);
+    escribir(subtotal);
     retornar subtotal * tasa;
 }
 
 principal {
     baseCalculo = 500;
+    escribir(baseCalculo);
     resultadoGlobal = calcularImpuesto();
+    escribir(resultadoGlobal);
 }
 
 ```
@@ -297,14 +313,18 @@ entero esFinDeSemana;
 
 principal {
     diaSemana = 6;
+    escribir(diaSemana);
 
     segun (diaSemana) {
         caso 6:
             esFinDeSemana = 1;
+            escribir(esFinDeSemana);
         caso 7:
             esFinDeSemana = 1;
+            escribir(esFinDeSemana);
         defecto:
             esFinDeSemana = 0;
+            escribir(esFinDeSemana);
     }
 }
 
