@@ -29,12 +29,3 @@ La tabla se mantiene en memoria durante toda la corrida del compilador y se vuel
 
 ## Criterios de aceptación
 
-CA-01 (Cumplimiento de atributos mínimos): Cada fila del archivo ts.txt contiene de manera legible y tabulada los campos: nombre, tipo, valor y longitud.
-
-CA-02 (Unicidad en el mismo ámbito): El módulo impide registrar dos veces el mismo identificador dentro de una misma función o dentro del ámbito global, y evita duplicar constantes con idéntico valor léxico.
-
-CA-03 (Identificación unívoca de variables locales): Las variables locales declaradas dentro de funciones quedan diferenciadas unívocamente en la tabla respecto de variables de otras funciones o globales mediante su calificado estático.
-
-CA-04 (Persistencia y exportación en archivo): La compilación genera el archivo ts.txt en el directorio de trabajo tanto si el análisis concluye exitosamente como si finaliza tras encontrar errores sintácticos o semánticos.
-
-CA-05 (Integridad de datos registrados): La columna longitud refleja la cantidad exacta de caracteres del campo nombre, y el campo valor conserva la representación textual exacta de las constantes reconocidas.
