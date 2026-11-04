@@ -1,0 +1,21 @@
+/* Archivo de prueba 4: Error Lexico en Caracter Inesperado / Simbolo ! Aislado
+   Cubre: la regla L6 (ERR_LEX_02) y regla de alfabeto (ERR_LEX_01).
+   En DUOTIPO '!' solo es valido si va seguido de '=' para formar '!='.
+   Ademas contiene un caracter desconocido fuera del alfabeto ('@').
+*/
+
+entero a;
+entero b;
+
+principal {
+    a = 10;
+    b = 20;
+
+    /* Error 1: '!' no seguido de '=' */
+    si (! a) {
+        a = 0;
+    }
+
+    /* Error 2: Caracter no valido en el lenguaje */
+    b = a @ 2;
+}

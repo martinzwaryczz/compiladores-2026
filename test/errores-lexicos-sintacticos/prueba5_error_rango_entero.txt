@@ -1,0 +1,12 @@
+/* Archivo de prueba 5: Error Lexico en Constante Entera Fuera de Rango (ERR_LEX_04)
+   Cubre: la regla L3 (complemento a dos en 32 bits con signo: maximo 2147483647).
+   El valor 999999999999999999999999 excede holgadamente los 32 bits.
+*/
+
+entero valorMaximo;
+entero valorDesbordado;
+
+principal {
+    valorMaximo = 2147483647;
+    valorDesbordado = 999999999999999999999999;
+}

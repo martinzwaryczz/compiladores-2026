@@ -1,0 +1,13 @@
+/* Archivo de prueba 2: Advertencia Lexica (Truncado de Identificador a 20 caracteres)
+   Cubre: la regla L2 y el codigo ADV_LEX_01.
+   El identificador 'variable_con_longitud_mayor_a_veinte' (36 caracteres)
+   debe ser truncado a 'variable_con_longitu' (20 caracteres).
+*/
+
+entero variable_con_longitud_mayor_a_veinte;
+entero identificador_muy_largo_para_el_lenguaje_duotipo;
+
+principal {
+    variable_con_longitud_mayor_a_veinte = 100;
+    identificador_muy_largo_para_el_lenguaje_duotipo = 200;
+}

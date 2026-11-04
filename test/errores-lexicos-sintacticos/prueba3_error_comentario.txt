@@ -1,0 +1,12 @@
+/* Archivo de prueba 3: Error Lexico en Comentario No Cerrado (ERR_LEX_03)
+   Cubre: la regla L6. Si se alcanza el fin de archivo (EOF / FDA)
+   sin haber cerrado el comentario de bloque, el analizador lexico
+   debe informar el error indicando la linea original donde abrio (linea 7).
+*/
+
+entero x;
+real y;
+
+/* Inicio de un comentario de bloque multilinea
+   que por error el programador olvido cerrar con asterisco barra.
+   El archivo termina abruptamente a continuacion.
