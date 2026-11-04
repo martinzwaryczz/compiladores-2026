@@ -5,10 +5,11 @@
 
 /*
  * Tabla de Unreads:
- * 1 = Requiere ungetc (el caracter delimitador no pertenece al token actual)
- * 0 = Consume el caracter normalmente
+ * 1 = Ejecuta ungetc (c, inputFile), el caracter delimitador no pertenece al token actual)
+ * 0 = el carácter pertenece al lexema o fue consumido normalmente 
  */
 static const int matriz_unreads[CANT_ESTADOS][CANT_EVENTOS] = {
+    /*  0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19  */
     /* LET, DIG,   =,   +,   -,   *,   /,   <,   >,   !,   (,   ),   {,   },   ;,   :,   .,  BL, FDA, OTR */
     {    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 }, /* E0: estado inicial */
     {    0,   0,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   0,   1 }, /* E1: palabra */
