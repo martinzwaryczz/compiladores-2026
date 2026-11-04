@@ -1,59 +1,41 @@
 #ifndef MATRIZ_ESTADOS_H
 #define MATRIZ_ESTADOS_H
 
-#define CANT_ESTADOS 24
-#define CANT_EVENTOS 20
+#define ESTADOS 24
+#define COLUMNAS 20
+#define EF -1
 
-typedef enum {
-    EST_INICIAL               = 0,
-    EST_PALABRA               = 1,
-    EST_ENTERO                = 2,
-    EST_REAL                  = 3,
-    EST_ASIGNACION            = 4,
-    EST_SUMA                  = 5,
-    EST_RESTA                 = 6,
-    EST_MULTIPLICACION        = 7,
-    EST_DIVISION              = 8,
-    EST_MENOR                 = 9,
-    EST_MAYOR                 = 10,
-    EST_MENOR_IGUAL           = 11,
-    EST_MAYOR_IGUAL           = 12,
-    EST_IGUALDAD              = 13,
-    EST_POSIBLE_DISTINTO      = 14,
-    EST_DISTINTO              = 15,
-    EST_ABRE_PAREN            = 16,
-    EST_CIERRA_PAREN          = 17,
-    EST_ABRE_LLAVE            = 18,
-    EST_CIERRA_LLAVE          = 19,
-    EST_FIN_SENTENCIA         = 20,
-    EST_SEPARADOR             = 21,
-    EST_COMENTARIO            = 22,
-    EST_POSIBLE_FIN_COMENTARIO= 23,
-    EST_FINAL                 = -1
-} EstadoLexico;
+static const int matriz_estados[ESTADOS][COLUMNAS] = {
+    /*           0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19 */
+    /*           Let    Dig    =    +    -    *    /    <    >    !    (    )    {    }    ;    :    .   BL  FDA OTRO */
+    /* 0: E0  */ {  1,   2,   4,   5,   6,   7,   8,   9,  10,  14,  16,  17,  18,  19,  20,  21,  EF,    0,  EF,   EF }, /* E0: estado inicial */
+    /* 1: E1  */ {  1,   1,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E1: palabra */
+    /* 2: E2  */ { EF,   2,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   3,   EF,  EF,   EF }, /* E2: entero */
+    /* 3: E3  */ { EF,   3,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E3: real */
+    /* 4: E4  */ { EF,  EF,  13,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E4: asigancion (=) */
+    /* 5: E5  */ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E5: suma (+) */
+    /* 6: E6  */ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E6: resta (-) */ 
+    /* 7: E7  */ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E7: multiplicación (*) */
+    /* 8: E8  */ { EF,  EF,  EF,  EF,  EF,  22,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E8: división (/) */
+    /* 9: E9  */ { EF,  EF,  11,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E9: menor (< ) */
+    /* 10: E10*/ { EF,  EF,  12,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E10: mayor (>) */
+    /* 11: E11*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E11: menor o igual (<=) */
+    /* 12: E12*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E12: mayor o igual (>=) */
+    /* 13: E13*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E13: igualdad (==) */
+    /* 14: E14*/ { EF,  EF,  15,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E14: posible distinto */
+    /* 15: E15*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E15: distinto ( !=) */
+    /* 16: E16*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E16: abre paréntesis */
+    /* 17: E17*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E17: cierra paréntesis */
+    /* 18: E18*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E18: llave apertura */
+    /* 19: E19*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E19: llave cierre */
+    /* 20: E20*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E20: fin sentencia (;) */
+    /* 21: E21*/ { EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,  EF,   EF,  EF,   EF }, /* E21: separador (:) */
+    /* 22: E22*/ { 22,  22,  22,  22,  22,  23,  22,  22,  22,  22,  22,  22,  22,  22,  22,  22,  22,   22,  EF,   22 }, /* E22: comentario (/* ) */
+    /* 23: E23*/ { 22,  22,  22,  22,  22,  23,   0,  22,  22,  22,  22,  22,  22,  22,  22,  22,  22,   22,  EF,   22 }  /* E23: posible fin comentario */
+};
 
-typedef enum {
-    EV_LETRA        = 0,
-    EV_DIGITO       = 1,
-    EV_IGUAL        = 2,
-    EV_MAS          = 3,
-    EV_MENOS        = 4,
-    EV_POR          = 5,
-    EV_BARRA        = 6,
-    EV_MENOR        = 7,
-    EV_MAYOR        = 8,
-    EV_ADMIRACION   = 9,
-    EV_ABRE_PAREN   = 10,
-    EV_CIERRA_PAREN = 11,
-    EV_ABRE_LLAVE   = 12,
-    EV_CIERRA_LLAVE = 13,
-    EV_PUNTO_COMA   = 14,
-    EV_DOS_PUNTOS   = 15,
-    EV_PUNTO        = 16,
-    EV_BLANCO       = 17,
-    EV_FDA          = 18,
-    EV_OTRO         = 19
-} EventoLexico;
+#endif
+
 
 static const int nuevo_estado[CANT_ESTADOS][CANT_EVENTOS] = {
     /* LET, DIG,   =,   +,   -,   *,   /,   <,   >,   !,   (,   ),   {,   },   ;,   :,   .,  BL, FDA, OTR */
@@ -69,7 +51,7 @@ static const int nuevo_estado[CANT_ESTADOS][CANT_EVENTOS] = {
     {   -1,  -1,  11,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E9: menor (< ) */
     {   -1,  -1,  12,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E10: mayor (>) */
     {   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E11: menor o igual (<=) */
-    {   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E12: mayor o igual (>=) */
+    {   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E13: igualdad (==) */
     {   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E13: igualdad (==) */
     {   -1,  -1,  15,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E14: posible distinto */
     {   -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1,  -1 }, /* E15: distinto ( !=) */
