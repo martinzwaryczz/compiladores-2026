@@ -92,7 +92,7 @@ y  o
 | 330 | TK_LBRACE | llave izquierda | `{` |
 | 331 | TK_RBRACE | llave derecha | `}` |
 | 332 | TK_SEMI | fin de sentencia | `;` |
-| 334 | TK_COLON | separador de etiqueta caso/defecto | `:` |
+| 333 | TK_COLON | separador de etiqueta caso/defecto | `:` |
 | 335 | TK_ESCR | escribir |  `escribir` |
 | 337 | TK_OTRO | carácter no reconocido | error léxico |
 
