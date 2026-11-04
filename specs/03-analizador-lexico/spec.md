@@ -208,7 +208,7 @@ Un valor `1` indica que se debe reinsertar el carácter leído en el buffer de e
 
 - Un valor `-1` indica que en esa combinación no se produce cierre de token (es un estado intermedio que continúa en el autómata o un blanco consumido).  
 - `TK_ID` (314): Si el identificador coincide con una palabra reservada, la función de desambiguación emitirá el token reservado correspondiente (`301` a `313`, `335`); de lo contrario emite `TK_ID` (314).  
-- `0`: Representa el token `YYEOF` / Fin de Archivo (retorno 0 en `yylex()`).  
+- `0`: Representa el Fin de Archivo (retorno 0 en `yylex()`).  
 - `337`: Error léxico (carácter inválido en E0, comentario sin cerrar al fin de archivo o `!` incompleto).
 
 | Nombre de Estado | N° | LETRA (0) | DÍGITO (1) | \= (2) | \+ (3) | \- (4) | \* (5) | / (6) | \< (7) | \> (8) | \! (9) | ( (10) | ) (11) | { (12) | } (13) | ; (14) | : (15) | . (16) | BLANCO (17) | FDA (18) | OTRO (19) |
@@ -253,7 +253,7 @@ Un valor `1` indica que se debe reinsertar el carácter leído en el buffer de e
 ---
 
 ## 11\. Traza de verificación
-
+ En la columna evento lo que esta entre paréntesis representa el n° de columna.
 ##### Traza 1: Reconocimiento de identificador y operador `+` (`contador + 5`)
 
 | Paso | N° | Estado | Carácter leído | Evento | Acción | Nuevo estado | Unread | Token devuelto |
