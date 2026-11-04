@@ -1,0 +1,34 @@
+/* Archivo de prueba 1: Caso Valido y Completo de DUOTIPO
+   Cubre: variables globales, funciones, bloque principal,
+   constantes enteras y reales, asignaciones, operadores aritmeticos,
+   operadores relacionales, conectores logicos y llamadas a funcion.
+*/
+
+entero baseCalculo;
+real resultadoGlobal;
+
+funcion real calcularImpuesto() {
+    real tasa;
+    real subtotal;
+
+    tasa = 0.21;
+    subtotal = aReal(baseCalculo);
+    retornar subtotal * tasa;
+}
+
+principal {
+    baseCalculo = 500;
+    resultadoGlobal = calcularImpuesto();
+
+    mientras (baseCalculo > 0 y resultadoGlobal <= 1000.50) {
+        baseCalculo = baseCalculo - 1;
+        escribir(baseCalculo);
+    }
+
+    segun (baseCalculo) {
+        caso 0:
+            escribir(0);
+        defecto:
+            escribir(1);
+    }
+}
