@@ -31,7 +31,7 @@ Reconocer un lenguaje de entrada aplicando las reglas grámaticales correspondie
 
 ## Reglas y decisiones de diseño
 
-* **Generador de parser:** Empleo de GNU Bison operando en modo LALR(1) con salida en lenguaje C. Símbolo inicial: `programa`.
+* **Generador de parser:** Empleo de GNU Bison operando en modo LALR(1) con salida en lenguaje C.
 * **Coordinación de códigos de terminales:** Los identificadores de tokens en `%token` coinciden con los enteros asignados en la matriz de tokens del lexer.
 * **Estructura del programa:** `programa → [declaraciones_globales] [funciones] principal`. El orden es fijo: primero las variables globales, luego las funciones y al final el bloque `principal`. Cada parte, salvo `principal`, es opcional.
 * **Declaraciones:** `declaracion → tipo TK_ID` seguida de `;`, con `tipo entero o tipo real}`, se permite una variable por declaración.
@@ -42,11 +42,11 @@ Reconocer un lenguaje de entrada aplicando las reglas grámaticales correspondie
   * Asignación: `TK_ID = expresion ;`
   * Salida: `escribir ( expresion ) ;`
   * Retorno: `retornar expresion ;`
-  * Repetición: `mientras ( expresion ) { sentencias }` (la condición es una expresión cualquiera y el cuerpo requiere al menos una sentencia).
+  * Repetición: `mientras ( expresion ) { sentencias }` (_la condición es una expresión cualquiera_ y el cuerpo requiere al menos una sentencia).
   * Selección: `segun ( TK_ID ) { lista_casos [caso_defecto] }`, con al menos un `caso`; el `defecto` es opcional y, si está, va al final. Cada `caso` es `caso TK_NUM_INT : sentencias` y `defecto` es `defecto : sentencias`.
   * Llamada a función: `TK_ID ( ) ;`. Las llamadas no llevan argumentos y pueden usarse como operando dentro de una expresión.
 
-* **Manejo de errores:** `yyerror(const char *s)` imprime por `[ERROR SINTACTICO] %s en linea %d.` (con `s = "syntax error"` y `yylineno`). No hay recuperación: `yyparse()` devuelve distinto de 0 y `main` informa compilación no exitosa.
+* **Manejo de errores:** `yyerror(const char *s)` imprime por `[ERROR SINTACTICO] %s en linea %d.` (con `s = "syntax error"` y `yylineno`). No hay recuperación: `yyparse()` devuelve distinto de 0 y `main` informa **compilación no exitosa**.
 
 * **Depuración:** `%debug` habilita las tablas de depuración de Bison y `main` fija `yydebug = 1`.
 
