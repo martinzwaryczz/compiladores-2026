@@ -1,7 +1,8 @@
 # Spec — 04-analizador-sintactico
 
 ## Objetivo
-Reconocer un lenguaje de entrada aplicando las reglas grámaticales correspondientes definidas en la [gramática](https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/01-diseno/spec.md#6-gram%C3%A1tica). El analizador lexico le brinda al analizador sintaxtico tokens con `yylex()`.
+
+Reconocer un lenguaje de entrada aplicando las reglas gramaticales correspondientes definidas en la gramática de DUOTIPO (https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/01-diseno/spec.md#6-gram%C3%A1tica). El analizador sintáctico procesa la entrada invocando bajo demanda al analizador léxico desarrollado por el grupo (https://github.com/martinzwaryczz/compiladores-2026/blob/main/src/lexer.c) a través de la función int yylex(void) (sin utilizar Flex) y tomando como referencia la Tabla de Símbolos definida en https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/02-tabla-simbolos/spec.md#spec--02-tabla-simbolos
 
 ## Alcance
 
