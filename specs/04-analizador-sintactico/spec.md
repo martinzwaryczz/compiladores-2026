@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Reconocer un lenguaje de entrada aplicando las reglas gramaticales correspondientes definidas en la gramática de DUOTIPO (https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/01-diseno/spec.md#6-gram%C3%A1tica). El analizador sintáctico procesa la entrada invocando bajo demanda al analizador léxico desarrollado por el grupo (https://github.com/martinzwaryczz/compiladores-2026/blob/main/src/lexer.c) a través de la función int yylex(void) (sin utilizar Flex) y tomando como referencia la Tabla de Símbolos definida en https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/02-tabla-simbolos/spec.md#spec--02-tabla-simbolos
+Reconocer un lenguaje de entrada aplicando las reglas gramaticales correspondientes definidas en la [gramática de DUOTIPO](https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/01-diseno/spec.md#6-gram%C3%A1tica). El analizador sintáctico procesa la entrada invocando bajo demanda al [analizador léxico](https://github.com/martinzwaryczz/compiladores-2026/blob/main/src/lexer.c) desarrollado por el grupo  a través de la función int yylex(void) (sin utilizar Flex) y tomando como referencia la Tabla de Símbolos definida en [Spec de tabla de simbolos de DUOTIPO](https://github.com/martinzwaryczz/compiladores-2026/blob/main/specs/02-tabla-simbolos/spec.md#spec--02-tabla-simbolos)
 
 ## Alcance
 
